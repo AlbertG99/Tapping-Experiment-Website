@@ -1,47 +1,3 @@
-<?php
-    // Check if data has been received.
-    $done = $_POST["done"];
-    
-    $data_received = false;
-    
-    if ($done == 10884) {  // Data has been received; proceed to save it, &c.
-        $data_received = true;
-        
-        echo "We rollin' bois";
-        
-        //The url you wish to send the POST request to
-        $url = "https://andrew.fi/tests/tapping_experiment/save.php";
-        
-        //The data you want to send via POST
-        $fields = [
-            'key' => '2F7E0461B3F2D3D9D0F977DB9B7CCCA055DDC78AE1EE00C52DD982ED91E7F355',
-            'userCode'      => '100',
-            'experimentID' => '6',
-            'data'         => '[[408.1, 991, 1407.6, 1608.1, 1751.3, 1910.9, 2031.7, 2160.5, 2295.4, 2423.8, 2551.3, 2671.1, 2807.1, 2944.1, 3199.9, 3344.5, 3487.3, 3631, 3767.1, 3910.9], [142.2, 263.8, 614.3, 773.8, 942.2, 1103.4, 1231.3, 1373.9, 1517.8, 1662.2, 1798.2, 1942.2, 2086.7, 2230.8, 2349.8, 2501.7, 2749.8, 2917.8, 3064.2, 3221.4, 3382, 3541.8, 3696.4, 3846, 3997.9, 4157.7, 4310.1, 4430, 4589.7, 4885.8]]'
-        ];
-        
-        //url-ify the data for the POST
-        $fields_string = http_build_query($fields);
-        
-        //open connection
-        $ch = curl_init();
-        
-        //set the url, number of POST vars, POST data
-        curl_setopt($ch,CURLOPT_URL, $url);
-        curl_setopt($ch,CURLOPT_POST, count($fields));
-        curl_setopt($ch,CURLOPT_POSTFIELDS, $fields_string);
-        
-        //So that curl_exec returns the contents of the cURL; rather than echoing it
-        curl_setopt($ch,CURLOPT_RETURNTRANSFER, true); 
-        
-        //execute post
-        $result = curl_exec($ch);
-        echo $result;
-        
-    }
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,11 +8,6 @@
 </head>
 
 <body id="container">
-	<?php
-        if ($data_received) {
-            echo "<!--";
-        }
-    ?>
 	<div>
 		<img id="fullscreen_button"
 			src="https://static.thenounproject.com/png/280-200.png">
@@ -186,23 +137,10 @@
 			<p id="complete">Sequences complete: 0/20</p>
 			<p id="money">Money made: $0.00</p>
 		</div>
-		<form method="post" action="index.php">
-			<input type="hidden" name="done" id="done" value="10884" /> <input
-				type="hidden" name="userCode" id="userCode" value="" /> <input
-				type="hidden" name="experimentID" id="experimentID" value="" /> <input
-				type="hidden" name="data" id="data" value="" /> <input
-				type="submit" class="nextButton fixed" id="toDone">FINISH</input>
-		</form>
-		<!-- <button type="button" class="nextButton fixed" id="toDone"
-			style="display: block;">FINISH</button> -->
+		<button type="button" class="nextButton fixed" id="toDone"
+			style="display: block;">FINISH</button>
 	</div>
-	<?php
-        if ($data_received) {
-            echo "-->";
-        }
-    ?>
-	<div id="done"
-		<?php if(!$data_received) {echo "style=\"display:none;\";";}?>>
+	<div id="done" style="display: none;">
 		<h1>Thank you!</h1>
 		<h3>Experiment complete!</h3>
 		<p>Please enter the following code in Mechanical Turk:</p>

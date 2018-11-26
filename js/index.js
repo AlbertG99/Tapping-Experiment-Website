@@ -23,7 +23,6 @@ var test = false;
 var email = false;
 var delay = 1000;
 var setup_beeps = true;
-var userCode = new Date().getTime();
 
 function get_browser() {
 	var ua=navigator.userAgent,tem,M=ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
@@ -190,9 +189,6 @@ function startPractice() {
 }
 
 function nextExperiment() {
-	document.getElementById("userCode").value = userCode;
-	document.getElementById("data").value = arrayToStr(totalTaps);
-	document.getElementById("experimentID").value = (currentTrial - (0 - 1)); // avoids js ambiguity between + as addition and concatenation
 	document.getElementById("status").innerHTML = "Status: Tap along...";
 	var labelLength = beepTimes[currentTrial].reduce(add, 0);
 	var exLength = labelLength + beepTimes[currentTrial][0]*15;
@@ -216,17 +212,6 @@ function nextExperiment() {
 			document.getElementById("recorded").style.display = "block";
 		}
 		diffs = diffs.concat(getDiffs(getCumulative(beepTimes[currentTrial-1]), tappedTimes));
-		// Asynchronously save the data
-		$.ajax({
-			url: "save.php",
-			type: "POST",
-			data: { key: '2F7E0461B3F2D3D9D0F977DB9B7CCCA055DDC78AE1EE00C52DD982ED91E7F355', userCode: userCode, experimentID: currentTrial, data: arrayToStr(totalTaps) },
-			cache: false,
-			success: function (response) {
-				alert(response);
-				//  $('#thenode').html(response);
-			}
-		});
 		if (currentTrial == beepTimes.length) {
 			dispFinalScreen();
 			document.getElementById("complete1").innerHTML = "Sequences complete: " + currentTrial + "/20";
@@ -260,9 +245,6 @@ function dispFinalScreen() {
 	if (test) {
 		document.getElementById("result").innerHTML = arrayToStr(totalTaps);
 	}
-
-	document.getElementById("userCode").value = userCode;
-	document.getElementById("data").value = arrayToStr(totalTaps);
 
 	experimentDiv.style.display = "none";
 	doneDiv.style.display = "block";
