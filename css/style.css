@@ -46,6 +46,10 @@ video {
 	font-size: 20px;
 }
 
+.quitButton {
+	left: 350px;
+}
+
 .expButton {
 	font-size: 40px;
 }
