@@ -77,7 +77,7 @@
 			position with your pointer finger on the key you selected (z), like
 			in the photo example below.</p>
 		<p>
-			<img src="images/instr_1.jpg" height="300px">
+			<img src="images/instr_1.jpg" height="350px">
 		</p>
 		<button type="button" class="nextButton fixed" id="toInstr2">NEXT</button>
 	</div>
@@ -123,6 +123,8 @@
 		<h3 id="statusPractice">Status: Ready</h3>
 		<p id="key_reminder2">Remember, you selected the following key to
 			tap: z</p>
+		<p>Tap in synch with the beeps when they begin, then continue
+			tapping until you see the STOP button.</p>
 		<button type="button" id="buttonPractice" style="background: grey;"
 			class="nextButton expButton" onclick="startPractice()">Click
 			here to Start</button>
@@ -143,6 +145,8 @@
 		<h3 id="status">Status: Ready</h3>
 		<p id="key_reminder">Remember, you selected the following key to
 			tap: z</p>
+		<p>Tap in synch with the beeps when they begin, then continue
+			tapping until you see the STOP button.</p>
 		<p id="printReactionTime"></p>
 		<button type="button" id="button" style="background: grey;"
 			class="nextButton expButton" onclick="nextExperiment()">Click
@@ -153,10 +157,11 @@
 			<p id="complete">Sequences complete: 0/20</p>
 			<p id="money">Money made: $0.00</p>
 		</div>
-		<p id="toQuit">If you have to quit without completing the task, please press
-			"QUIT NOW" at any point.</p>
-		<button type="button" class="nextButton fixed" id="quitEarly"
-			style="display: block; background: red;">QUIT NOW</button>
+		<p id="toQuit">If you have to quit without completing the task,
+			please press "QUIT NOW" at any point.</p>
+		<button type="button" class="nextButton fixed quitButton"
+			id="quitEarly" style="display: block; background: red;">QUIT
+			NOW</button>
 	</div>
 	<div id="breakScreen" style="display: none;">
 		<h3>Take a break!</h3>
@@ -171,9 +176,9 @@
 	<div id="quitting" style="display: none;">
 		<h3>Are you sure you want to quit early?</h3>
 		<p id="earnMore">You can still earn up to $2.00.</p>
-		<button type="button" class="nextButton fixed" id="goBack"
+		<button type="button" class="nextButton fixed quitButton" id="goBack"
 			style="display: block;">NO! GO BACK</button>
-		<button type="button" class="nextButton fixed quitButton" id="toDone"
+		<button type="button" class="nextButton fixed" id="toDone"
 			style="display: block; background: red;">YES, QUIT NOW</button>
 	</div>
 	<div id="done" style="display: none;">
@@ -181,15 +186,21 @@
 		<h3>Experiment complete!</h3>
 		<p>Please enter the following code in Mechanical Turk:</p>
 		<p id="code"></p>
+		<p>Once you have copied the code and completed the additional
+			questions in Mechanical Turk, you are all set. Thank you for helping
+			with our experiment!</p>
 		<p id="result"></p>
 		<p id="complete1">Sequences complete: 0/20</p>
 		<p id="money1">Money earned: $0.00</p>
 		<p>Let's see how you actually performed while tapping along:</p>
 		<div id="plot"></div>
-		<p>You didn't perfectly align your key presses with the beeps, but
-			no worries. It's typical to show a certain amount of delay. We are
-			interested in how humans try to move in sync and keep the pattern in
-			various conditions. Thank you for paying attention to our experiment!</p>
+		<p>Above is a graph showing your averaged results. Results in the
+			“0” bar show the number of key presses that were exactly aligned with
+			the beep. It’s not possible to perfectly align all your key presses
+			with the beeps. It's typical to show some delays, especially with
+			difficult sequences. We are interested in how people try to move in
+			sync and notice differences in various conditions. Thank you for
+			helping with our experiment!</p>
 	</div>
 	<div id="footer">
 		<p>

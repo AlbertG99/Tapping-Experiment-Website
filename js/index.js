@@ -165,6 +165,7 @@ function startPractice() {
 	document.getElementById("statusPractice").innerHTML = "Status: Tap along...";
 	document.getElementById("buttonPractice").innerHTML = "Tap along...";
 	document.getElementById("buttonPractice").style.background = "grey";
+	document.getElementById("buttonPractice").onclick = null;
 	var keyPressed = false;
 	document.onkeydown = function () {
 		keyPressed = true;
@@ -267,8 +268,9 @@ function dispFinalScreen() {
 			type: 'histogram',
 	};
 	var layout = {
-			xaxis: {title: "Interval between a beep and key press (milliseconds)"}, 
-			yaxis: {title: "#"},
+			title: "My Performance",
+			xaxis: {title: "Delay between beep and key press (milliseconds)"}, 
+			yaxis: {title: "Number of such delays"},
 	};
 	var data = [trace];
 	Plotly.newPlot('plot', data, layout);
