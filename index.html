@@ -8,214 +8,216 @@
 </head>
 
 <body id="container">
-	<div>
-		<img id="fullscreen_button"
-			src="https://static.thenounproject.com/png/280-200.png">
-	</div>
-	<div id="distractions">
-		<h1>Welcome!</h1>
-		<p id="js_check" style="color: red;">
-			<b>WARNING!</b> JavaScript is required for this experiment to
-			function properly, but it seems to be disabled on your computer. We
-			recommend using the Google Chrome browser for best performance.
-		</p>
-		<h3>Setup:</h3>
-		<p>1. Disable distractions</p>
-		<p>Please take a moment to disable any distractions around you
-			(silence your cell phone, close browser tabs that will result in
-			notifications or other distractions, and set your computer to do not
-			disturb mode if you are able). Also, please click the full screen
-			button in the top right corner.</p>
-	</div>
-	<div id="setup_sound" style="display: none;">
-		<h3>Setup:</h3>
-		<p>2. Configure sound</p>
-		<p>
-			Please adjust the volume bar below so that you can comfortably hear
-			the beeps (you should not have to strain to hear them). If you cannot
-			hear the beeps even at higher volume levels, make sure your
-			system/computer volume is on. If you do not hear any beeps, please do
-			not proceed to the next step, but <a href="mailto:albertg@mit.edu">contact
-				the researcher</a>.
-		</p>
-		<div class="slidecontainer">
-			<input type="range" min="1" max="100" value="10" class="slider"
-				id="slider">
+	<div id="container2">
+		<div>
+			<img id="fullscreen_button"
+				src="https://static.thenounproject.com/png/280-200.png">
 		</div>
-		<p id="sound">
-			<b>Current sound</b>: 10%
-		</p>
-		<p>When you are done configuring the sound settings, click the
-			“NEXT” button to proceed to the next step.</p>
-		<button type="button" class="nextButton fixed" id="toKey">NEXT</button>
-	</div>
-	<div id="setup_key" style="display: none;">
-		<h3>Setup:</h3>
-		<p>3. Choose key</p>
-		<p>
-			Please select your preferred key. Do this by pressing a single key in
-			a comfortable location on your keyboard (that you would be
-			comfortable tapping with your pointer finger for an extended period
-			of time). The key you select will appear below. You may select any
-			key <i>except</i> the space bar.
-		</p>
-		<p id="key">
-			<b>Current key</b>: z
-		</p>
-		<p>When you are done configuring the key settings, click the
-			“NEXT” button to proceed to the experiment instructions.</p>
-		<button type="button" class="nextButton fixed" id="toInstr0">NEXT</button>
-	</div>
-	<div id="instr_0" style="display: none;">
-		<h3>Instructions:</h3>
-		<p>Please pay careful attention to the following instructions.</p>
-		<button type="button" class="nextButton fixed" id="toInstr1">NEXT</button>
-	</div>
-	<div id="instr_1" style="display: none;">
-		<h3>Instructions:</h3>
-		<p id="instr_1_text">1. Place your dominant hand in a comfortable
-			position with your pointer finger on the key you selected (z), like
-			in the photo example below.</p>
-		<p>
-			<img src="images/instr_1.jpg" height="350px">
-		</p>
-		<button type="button" class="nextButton fixed" id="toInstr2">NEXT</button>
-	</div>
-	<div id="instr_2" style="display: none;">
-		<h3>Instructions:</h3>
-		<p>2. You will hear a sequence of beeps. We would like you to tap
-			(completely press and then release the key and slightly lift your
-			finger) in synch with the beeps. Try to complete each key press at
-			the same time as each beep.</p>
-		<p>Some sequences are challenging. Just do your best to press the
-			key at the same time as the beep.</p>
-		<p>
-			<img src="images/instr_2.png" height="270px">
-		</p>
-		<button type="button" class="nextButton fixed" id="toInstr3">NEXT</button>
-	</div>
-	<div id="instr_3" style="display: none;">
-		<h3>Instructions:</h3>
-		<p>3. Once the sequence of beeps stops, keep tapping the key to
-			continue the sequence as if the beeps were still there. Keep
-			continuing the sequence until you see the word STOP.</p>
-		<p>NOTE: Treat each sequence independently of the others.</p>
-		<button type="button" class="nextButton fixed" id="toDemo">NEXT</button>
-	</div>
-	<div id="demo" style="display: none;">
-		<h3>Demo:</h3>
-		<p>Please watch the video demonstration of an example sequence.
-			Notice how the participant lifts their finger off the key between
-			presses, but not excessively.</p>
-		<video width="569" height="320" controls id="demoVid">
-			<source src="images/demo_vid.mp4" type="video/mp4">
-			Your browser does not support the video tag.
-		</video>
-		<button type="button" class="nextButton fixed" id="toPractice">NEXT</button>
-	</div>
-	<div id="practice" style="display: none;">
-		<h3>Practice Round:</h3>
-		<p>Now you will perform a practice sequence. Remember to press the
-			key you selected in synch with the beeps.</p>
-		<button type="button" class="nextButton fixed" id="toRound">NEXT</button>
-	</div>
-	<div id="practiceRound" style="display: none;">
-		<h3 id="statusPractice">Status: Ready</h3>
-		<p id="key_reminder2">Remember, you selected the following key to
-			tap: z</p>
-		<p>Tap in synch with the beeps when they begin, then continue
-			tapping until you see the STOP button.</p>
-		<button type="button" id="buttonPractice" style="background: grey;"
-			class="nextButton expButton" onclick="startPractice()">Click
-			here to Start</button>
-		<p id="recorded2" style="display: none;">Key presses successfully
-			recorded.</p>
-		<button type="button" class="nextButton fixed" id="toPre">NEXT</button>
-	</div>
-	<div id="pre" style="display: none;">
-		<h3>Get ready!</h3>
-		<p>Now you will do some real sequences. Some will be more
-			difficult than others. Please do your best to press the key in synch
-			with the beeps as accurately as possible.</p>
-		<p>After you click "Start next sequence" there will be a ~2 second
-			pause to allow you to set up your finger on the key.</p>
-		<button type="button" class="nextButton fixed" id="toExperiment">NEXT</button>
-	</div>
-	<div id="experiment" style="display: none;">
-		<h3 id="status">Status: Ready</h3>
-		<p id="key_reminder">Remember, you selected the following key to
-			tap: z</p>
-		<p>Tap in synch with the beeps when they begin, then continue
-			tapping until you see the STOP button.</p>
-		<p id="printReactionTime"></p>
-		<button type="button" id="button" style="background: grey;"
-			class="nextButton expButton" onclick="nextExperiment()">Click
-			here to Start</button>
-		<p id="recorded" style="display: none;">Key presses successfully
-			recorded.</p>
-		<div id="counters">
-			<p id="complete">Sequences complete: 0/20</p>
-			<p id="money">Money made: $0.00</p>
+		<div id="distractions">
+			<h1>Welcome!</h1>
+			<p id="js_check" style="color: red;">
+				<b>WARNING!</b> JavaScript is required for this experiment to
+				function properly, but it seems to be disabled on your computer. We
+				recommend using the Google Chrome browser for best performance.
+			</p>
+			<h3>Setup:</h3>
+			<p>1. Disable distractions</p>
+			<p>Please take a moment to disable any distractions around you
+				(silence your cell phone, close browser tabs that will result in
+				notifications or other distractions, and set your computer to do not
+				disturb mode if you are able). Also, please click the full screen
+				button in the top right corner.</p>
 		</div>
-		<p id="toQuit">If you have to quit without completing the task,
-			please press "QUIT NOW" at any point.</p>
-		<button type="button" class="nextButton fixed quitButton"
-			id="quitEarly" style="display: block; background: red;">QUIT
-			NOW</button>
-	</div>
-	<div id="breakScreen" style="display: none;">
-		<h3>Take a break!</h3>
-		<p>If you want, you can take a break here for a few minutes. Make
-			sure to relax your hand and fingers.</p>
-		<p id="complete2">Sequences complete: 0/20</p>
-		<p id="money2">Money made: $0.00</p>
-		<p>Press "BACK" once a few minutes have passed and you are ready
-			to continue.</p>
-		<button type="button" class="nextButton fixed" id="endBreak">BACK</button>
-	</div>
-	<div id="quitting" style="display: none;">
-		<h3>Are you sure you want to quit early?</h3>
-		<p id="earnMore">You can still earn up to $2.00.</p>
-		<button type="button" class="nextButton fixed quitButton" id="goBack"
-			style="display: block;">NO! GO BACK</button>
-		<button type="button" class="nextButton fixed" id="toDone"
-			style="display: block; background: red;">YES, QUIT NOW</button>
-	</div>
-	<div id="done" style="display: none;">
-		<h1>Thank you!</h1>
-		<h3>Experiment complete!</h3>
-		<p>Please enter the following code in Mechanical Turk:</p>
-		<p id="code"></p>
-		<p>Once you have copied the code and completed the additional
-			questions in Mechanical Turk, you are all set. Thank you for helping
-			with our experiment!</p>
-		<p id="result"></p>
-		<p id="complete1">Sequences complete: 0/20</p>
-		<p id="money1">Money earned: $0.00</p>
-		<p>Let's see how you actually performed while tapping along:</p>
-		<div id="plot"></div>
-		<p>Above is a graph showing your averaged results. Results in the
-			“0” bar show the number of key presses that were exactly aligned with
-			the beep. It’s not possible to perfectly align all your key presses
-			with the beeps. It's typical to show some delays, especially with
-			difficult sequences. We are interested in how people try to move in
-			sync and notice differences in various conditions. Thank you for
-			helping with our experiment!</p>
-	</div>
-	<div id="footer">
-		<p>
-			If you encounter technical issues at any time, please <a
-				href="mailto:albertg@mit.edu">contact the researcher</a>.
-		</p>
-	</div>
-	<script src="js/index.js"></script>
-	<script type="text/javascript"
-		src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
-	<script src="js/plotly-latest.min.js"></script>
-	<script type="text/javascript">
+		<div id="setup_sound" style="display: none;">
+			<h3>Setup:</h3>
+			<p>2. Configure sound</p>
+			<p>
+				Please adjust the volume bar below so that you can comfortably hear
+				the beeps (you should not have to strain to hear them). If you
+				cannot hear the beeps even at higher volume levels, make sure your
+				system/computer volume is on. If you do not hear any beeps, please
+				do not proceed to the next step, but <a
+					href="mailto:albertg@mit.edu">contact the researcher</a>.
+			</p>
+			<div class="slidecontainer">
+				<input type="range" min="1" max="100" value="10" class="slider"
+					id="slider">
+			</div>
+			<p id="sound">
+				<b>Current sound</b>: 10%
+			</p>
+			<p>When you are done configuring the sound settings, click the
+				“NEXT” button to proceed to the next step.</p>
+			<button type="button" class="nextButton fixed" id="toKey">NEXT</button>
+		</div>
+		<div id="setup_key" style="display: none;">
+			<h3>Setup:</h3>
+			<p>3. Choose key</p>
+			<p>
+				Please select your preferred key. Do this by pressing a single key
+				in a comfortable location on your keyboard (that you would be
+				comfortable tapping with your pointer finger for an extended period
+				of time). The key you select will appear below. You may select any
+				key <i>except</i> the space bar.
+			</p>
+			<p id="key">
+				<b>Current key</b>: z
+			</p>
+			<p>When you are done configuring the key settings, click the
+				“NEXT” button to proceed to the experiment instructions.</p>
+			<button type="button" class="nextButton fixed" id="toInstr0">NEXT</button>
+		</div>
+		<div id="instr_0" style="display: none;">
+			<h3>Instructions:</h3>
+			<p>Please pay careful attention to the following instructions.</p>
+			<button type="button" class="nextButton fixed" id="toInstr1">NEXT</button>
+		</div>
+		<div id="instr_1" style="display: none;">
+			<h3>Instructions:</h3>
+			<p id="instr_1_text">1. Place your dominant hand in a comfortable
+				position with your pointer finger on the key you selected (z), like
+				in the photo example below.</p>
+			<p>
+				<img src="images/instr_1.jpg" height="350px">
+			</p>
+			<button type="button" class="nextButton fixed" id="toInstr2">NEXT</button>
+		</div>
+		<div id="instr_2" style="display: none;">
+			<h3>Instructions:</h3>
+			<p>2. You will hear a sequence of beeps. We would like you to tap
+				(completely press and then release the key and slightly lift your
+				finger) in synch with the beeps. Try to complete each key press at
+				the same time as each beep.</p>
+			<p>Some sequences are challenging. Just do your best to press the
+				key at the same time as the beep.</p>
+			<p>
+				<img src="images/instr_2.png" height="270px">
+			</p>
+			<button type="button" class="nextButton fixed" id="toInstr3">NEXT</button>
+		</div>
+		<div id="instr_3" style="display: none;">
+			<h3>Instructions:</h3>
+			<p>3. Once the sequence of beeps stops, keep tapping the key to
+				continue the sequence as if the beeps were still there. Keep
+				continuing the sequence until you see the word STOP.</p>
+			<p>NOTE: Treat each sequence independently of the others.</p>
+			<button type="button" class="nextButton fixed" id="toDemo">NEXT</button>
+		</div>
+		<div id="demo" style="display: none;">
+			<h3>Demo:</h3>
+			<p>Please watch the video demonstration of an example sequence.
+				Notice how the participant lifts their finger off the key between
+				presses, but not excessively.</p>
+			<video width="569" height="320" controls id="demoVid">
+				<source src="images/demo_vid.mp4" type="video/mp4">
+				Your browser does not support the video tag.
+			</video>
+			<button type="button" class="nextButton fixed" id="toPractice">NEXT</button>
+		</div>
+		<div id="practice" style="display: none;">
+			<h3>Practice Round:</h3>
+			<p>Now you will perform a practice sequence. Remember to press
+				the key you selected in synch with the beeps.</p>
+			<button type="button" class="nextButton fixed" id="toRound">NEXT</button>
+		</div>
+		<div id="practiceRound" style="display: none;">
+			<h3 id="statusPractice">Status: Ready</h3>
+			<p id="key_reminder2">Remember, you selected the following key to
+				tap: z</p>
+			<p>Tap in synch with the beeps when they begin, then continue
+				tapping until you see the STOP button.</p>
+			<button type="button" id="buttonPractice" style="background: grey;"
+				class="nextButton expButton" onclick="startPractice()">Click
+				here to Start</button>
+			<p id="recorded2" style="display: none;">Key presses successfully
+				recorded.</p>
+			<button type="button" class="nextButton fixed" id="toPre">NEXT</button>
+		</div>
+		<div id="pre" style="display: none;">
+			<h3>Get ready!</h3>
+			<p>Now you will do some real sequences. Some will be more
+				difficult than others. Please do your best to press the key in synch
+				with the beeps as accurately as possible.</p>
+			<p>After you click "Start next sequence" there will be a ~2
+				second pause to allow you to set up your finger on the key.</p>
+			<button type="button" class="nextButton fixed" id="toExperiment">NEXT</button>
+		</div>
+		<div id="experiment" style="display: none;">
+			<h3 id="status">Status: Ready</h3>
+			<p id="key_reminder">Remember, you selected the following key to
+				tap: z</p>
+			<p>Tap in synch with the beeps when they begin, then continue
+				tapping until you see the STOP button.</p>
+			<p id="printReactionTime"></p>
+			<button type="button" id="button" style="background: grey;"
+				class="nextButton expButton" onclick="nextExperiment()">Click
+				here to Start</button>
+			<p id="recorded" style="display: none;">Key presses successfully
+				recorded.</p>
+			<div id="counters">
+				<p id="complete">Sequences complete: 0/20</p>
+				<p id="money">Money made: $0.00</p>
+			</div>
+			<p id="toQuit">If you have to quit without completing the task,
+				please press "QUIT NOW" at any point.</p>
+			<button type="button" class="nextButton fixed quitButton"
+				id="quitEarly" style="display: block; background: red;">QUIT
+				NOW</button>
+		</div>
+		<div id="breakScreen" style="display: none;">
+			<h3>Take a break!</h3>
+			<p>If you want, you can take a break here for a few minutes. Make
+				sure to relax your hand and fingers.</p>
+			<p id="complete2">Sequences complete: 0/20</p>
+			<p id="money2">Money made: $0.00</p>
+			<p>Press "BACK" once a few minutes have passed and you are ready
+				to continue.</p>
+			<button type="button" class="nextButton fixed" id="endBreak">BACK</button>
+		</div>
+		<div id="quitting" style="display: none;">
+			<h3>Are you sure you want to quit early?</h3>
+			<p id="earnMore">You can still earn up to $2.00.</p>
+			<button type="button" class="nextButton fixed quitButton" id="goBack"
+				style="display: block;">NO! GO BACK</button>
+			<button type="button" class="nextButton fixed" id="toDone"
+				style="display: block; background: red;">YES, QUIT NOW</button>
+		</div>
+		<div id="done" style="display: none;">
+			<h1>Thank you!</h1>
+			<h3>Experiment complete!</h3>
+			<p>Please enter the following code in Mechanical Turk:</p>
+			<p id="code"></p>
+			<p>Once you have copied the code and completed the additional
+				questions in Mechanical Turk, you are all set. Thank you for helping
+				with our experiment!</p>
+			<p id="result"></p>
+			<p id="complete1">Sequences complete: 0/20</p>
+			<p id="money1">Money earned: $0.00</p>
+			<p>Let's see how you actually performed while tapping along:</p>
+			<div id="plot"></div>
+			<p>Above is a graph showing your averaged results. Results in the
+				“0” bar show the number of key presses that were exactly aligned
+				with the beep. It’s not possible to perfectly align all your key
+				presses with the beeps. It's typical to show some delays, especially
+				with difficult sequences. We are interested in how people try to
+				move in sync and notice differences in various conditions. Thank you
+				for helping with our experiment!</p>
+		</div>
+		<div id="footer">
+			<p>
+				If you encounter technical issues at any time, please <a
+					href="mailto:albertg@mit.edu">contact the researcher</a>.
+			</p>
+		</div>
+		<script src="js/index.js"></script>
+		<script type="text/javascript"
+			src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
+		<script src="js/plotly-latest.min.js"></script>
+		<script type="text/javascript">
 		(function() {
 			emailjs.init("user_tOpOcKdDC8xFnj1IWMGDn");
 		})();
 	</script>
+	</div>
 </body>
 </html>

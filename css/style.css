@@ -5,6 +5,13 @@ body {
 	max-width: 900px;
 }
 
+#container2 {
+	font-family: Verdana, Geneva, sans-serif;
+	min-width: 600px;
+	min-height: 500px;
+	max-width: 900px;
+}
+
 #code {
 	padding: 3px;
 	border: 1px dashed black;
