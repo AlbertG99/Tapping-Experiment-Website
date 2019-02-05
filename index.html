@@ -156,7 +156,7 @@
 				recorded.</p>
 			<div id="counters">
 				<p id="complete">Sequences complete: 0/20</p>
-				<p id="money">Money made: $0.00</p>
+				<p id="money" style="display: none;">Money made: $0.00</p>
 			</div>
 			<p id="toQuit">If you have to quit without completing the task,
 				please press "QUIT NOW" at any point.</p>
@@ -169,14 +169,14 @@
 			<p>If you want, you can take a break here for a few minutes. Make
 				sure to relax your hand and fingers.</p>
 			<p id="complete2">Sequences complete: 0/20</p>
-			<p id="money2">Money made: $0.00</p>
+			<p id="money2" style="display: none;">Money made: $0.00</p>
 			<p>Press "BACK" once a few minutes have passed and you are ready
 				to continue.</p>
 			<button type="button" class="nextButton fixed" id="endBreak">BACK</button>
 		</div>
 		<div id="quitting" style="display: none;">
 			<h3>Are you sure you want to quit early?</h3>
-			<p id="earnMore">You can still earn up to $2.00.</p>
+			<p id="earnMore" style="display: none;">You can still earn up to $2.00.</p>
 			<button type="button" class="nextButton fixed quitButton" id="goBack"
 				style="display: block;">NO! GO BACK</button>
 			<button type="button" class="nextButton fixed" id="toDone"
@@ -185,14 +185,16 @@
 		<div id="done" style="display: none;">
 			<h1>Thank you!</h1>
 			<h3>Experiment complete!</h3>
-			<p>Please enter the following code in Mechanical Turk:</p>
+			<p>Please click the following link to confirm your completion of this study:</p>
+			<p><a href="https://app.prolific.ac/submissions/complete?cc=9QQ9ZTP4">https://app.prolific.ac/submissions/complete?cc=9QQ9ZTP4</a></p>
+			<!-- <p>Please enter the following code in Mechanical Turk:</p>
 			<p id="code"></p>
 			<p>Once you have copied the code and completed the additional
 				questions in Mechanical Turk, you are all set. Thank you for helping
-				with our experiment!</p>
+				with our experiment!</p>--->
 			<p id="result"></p>
 			<p id="complete1">Sequences complete: 0/20</p>
-			<p id="money1">Money earned: $0.00</p>
+			<p id="money1" style="display: none;">Money earned: $0.00</p>
 			<p>Let's see how you actually performed while tapping along:</p>
 			<div id="plot"></div>
 			<p>Above is a graph showing your averaged results. Results in the
@@ -214,10 +216,10 @@
 			src="https://cdn.emailjs.com/sdk/2.2.4/email.min.js"></script>
 		<script src="js/plotly-latest.min.js"></script>
 		<script type="text/javascript">
-		(function() {
-			emailjs.init("user_tOpOcKdDC8xFnj1IWMGDn");
-		})();
-	</script>
+			(function() {
+				emailjs.init("user_tOpOcKdDC8xFnj1IWMGDn");
+			})();
+		</script>
 	</div>
 </body>
 </html>

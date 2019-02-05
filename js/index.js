@@ -47,6 +47,7 @@ function get_browser() {
 }
 
 var browser = get_browser();
+var appV = navigator.appVersion;
 document.getElementById("js_check").style.display = "none";
 
 function multiplyElements(arr, factor) {
@@ -248,13 +249,13 @@ function nextExperiment() {
 
 function dispFinalScreen() {
 	document.getElementById("complete1").innerHTML = "Sequences complete: " + currentTrial + "/20";
-	document.getElementById("money1").innerHTML = "Money earned: $" + (currentTrial * pay).toFixed(2);
+	//document.getElementById("money1").innerHTML = "Money earned: $" + (currentTrial * pay).toFixed(2);
 	document.getElementById("footer").style.display = "none";
 	var experimentDiv = document.getElementById("experiment");
 	var quittingDiv = document.getElementById("quitting");
 	var doneDiv = document.getElementById("done");
 	var userCode = new Date().getTime();
-	document.getElementById("code").innerHTML = userCode;
+	//document.getElementById("code").innerHTML = userCode;
 	if (test) {
 		document.getElementById("result").innerHTML = arrayToStr(totalTaps);
 	}
@@ -279,7 +280,9 @@ function dispFinalScreen() {
 		var templateParams = {
 				id: userCode,
 				results: arrayToStr(totalTaps),
-				test: test
+				test: test,
+				browse: browser,
+				os: appV
 		};
 
 		emailjs.send('gmail','results_email', templateParams);
