@@ -255,7 +255,8 @@ function dispFinalScreen() {
 	var quittingDiv = document.getElementById("quitting");
 	var doneDiv = document.getElementById("done");
 	var userCode = new Date().getTime();
-	//document.getElementById("code").innerHTML = userCode;
+	document.getElementById("code").innerHTML = userCode;
+	document.getElementById("survey").href = "https://docs.google.com/forms/d/e/1FAIpQLScGZDqD_nLEpxrN4ivV0dWD-Gp-BS-HDBwOydvlsMRVjKS_ew/viewform?entry.1447242101=" + userCode;
 	if (test) {
 		document.getElementById("result").innerHTML = arrayToStr(totalTaps);
 	}
@@ -281,7 +282,7 @@ function dispFinalScreen() {
 				id: userCode,
 				results: arrayToStr(totalTaps),
 				test: test,
-				browse: browser,
+				browse: JSON.stringify(browser),
 				os: appV
 		};
 
